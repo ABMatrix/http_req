@@ -152,4 +152,14 @@ impl Config {
 
         Ok(Conn { stream })
     }
+
+    #[cfg(feature = "rust-tls")]
+    pub fn new(ver: std::sync::Arc<rustls::ServerCertVerifier>) -> Self{
+        let mut config = rustls::ClientConfig::new();
+        config.dangerous().set_certificate_verifier(std::sync::Arc::new(ver::new(true)));
+        Config {
+            client_config: std::sync::Arc::new(config),
+        }
+    }
+
 }
