@@ -63,7 +63,7 @@ pub struct Config {
     #[cfg(feature = "native-tls")]
     extra_root_certs: Vec<native_tls::Certificate>,
     #[cfg(feature = "rust-tls")]
-    client_config: std::sync::Arc<rustls::ClientConfig>,
+    pub client_config: std::sync::Arc<rustls::ClientConfig>,
 }
 
 impl Default for Config {

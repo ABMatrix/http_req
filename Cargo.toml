@@ -16,6 +16,7 @@ unicase = "^2.6"
 [features]
 default = ["native-tls"]
 rust-tls = ["rustls", "webpki", "webpki-roots"]
+dangerous = ["rustls/dangerous_configuration"]
 
 [dependencies.native-tls]
 version = "^0.2"
